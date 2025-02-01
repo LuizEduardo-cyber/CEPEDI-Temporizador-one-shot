@@ -35,27 +35,10 @@ int64_t turn_off_callback3(alarm_id_t id, void *user_data) {
     return 0;
 }
 
-bool repeating_timer_callback(struct repeating_timer *t){
-    static uint8_t a = 0;
-       printf("%d segundos ",a);
-      a++;
-      if(a==1){
-        gpio_put(LED_BLUE,false);
-      }
-      if(a==2){
-        gpio_put(LED_RED,false);
-      }
-      if(a==3){
-        gpio_put(LED_GREEN,false);
-      }
-      if(a>3){
-        a=0;
-      }
 
    
    
-    return true;
-}
+  
 
 
 
@@ -80,6 +63,7 @@ int main(){
             sleep_ms(50);
 
             if (gpio_get(BUTTON) == 0 && gpio_get(LED_RED)==0 && gpio_get(LED_BLUE)==0 && gpio_get(LED_GREEN)==0) {
+                sleep_ms(1000);
                 gpio_put(LED_RED, true);
                 gpio_put(LED_BLUE,true);
                 gpio_put(LED_GREEN,true);
@@ -87,9 +71,9 @@ int main(){
 
                 led_active = true;
                 //  add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
-                add_alarm_in_ms(3000, turn_off_callback, NULL, false);
+                add_alarm_in_ms(1000, turn_off_callback, NULL, false);
                 add_alarm_in_ms(4000, turn_off_callback2, NULL, false);
-                add_alarm_in_ms(5000, turn_off_callback3, NULL, false);
+                add_alarm_in_ms(7000, turn_off_callback3, NULL, false);
 
                 
                   
