@@ -93,6 +93,10 @@ int64_t turn_off_callback3(alarm_id_t id, void *user_data) {
 
   ```
 as funções turn_off_callback, turn_off_callback2 e turn_off_callback3 são interrupções que tem como função desligar cada Led e retornar um valor.
+Diagrama de Conexões 💡:
+
+https://drive.google.com/file/d/1MEYWebIbpzQ6gUQRP9w9c6Tk-MA6CKln/view?usp=drive_link
+
 ## Próximos Passos ➡️
 
 - Fazer um semaforo que indique um tempo mais adequado para os acionamento de cada led.
