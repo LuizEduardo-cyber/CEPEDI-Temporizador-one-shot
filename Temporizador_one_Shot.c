@@ -70,7 +70,6 @@ int main(){
 
 
                 led_active = true;
-                //  add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
                 add_alarm_in_ms(1000, turn_off_callback, NULL, false);
                 add_alarm_in_ms(4000, turn_off_callback2, NULL, false);
                 add_alarm_in_ms(7000, turn_off_callback3, NULL, false);
