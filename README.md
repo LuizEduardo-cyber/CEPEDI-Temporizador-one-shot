@@ -37,11 +37,12 @@ Este projeto faz com que ascenda os 3 LED(vermeljo,verde e amarelo) em apenas um
 
 ## Funcionamento do Loop Principal 🔄 
 ```
-   while (true) {
+     while (true) {
          if (gpio_get(BUTTON) == 0 && !led_active) {
             sleep_ms(50);
 
             if (gpio_get(BUTTON) == 0 && gpio_get(LED_RED)==0 && gpio_get(LED_BLUE)==0 && gpio_get(LED_GREEN)==0) {
+                sleep_ms(1000);
                 gpio_put(LED_RED, true);
                 gpio_put(LED_BLUE,true);
                 gpio_put(LED_GREEN,true);
@@ -49,17 +50,16 @@ Este projeto faz com que ascenda os 3 LED(vermeljo,verde e amarelo) em apenas um
 
                 led_active = true;
                 //  add_repeating_timer_ms(1000, repeating_timer_callback, NULL, &timer);
-                add_alarm_in_ms(3000, turn_off_callback, NULL, false);
+                add_alarm_in_ms(1000, turn_off_callback, NULL, false);
                 add_alarm_in_ms(4000, turn_off_callback2, NULL, false);
-                add_alarm_in_ms(5000, turn_off_callback3, NULL, false);
-                  
+                add_alarm_in_ms(7000, turn_off_callback3, NULL, false);
+ 
             }
            
         }
     
     sleep_ms(10);
 
-}
   ```
 O loop while (true) garante execução contínua. A primeira condição IF tem como objetivo fazer o debounce que faz controle de corrente ao clicar no pushbutton. A segunda condição serve para chamar as interrupções apenas qyuando clicar no pushbutton e todos os Leds estiverem desligados.led_active = true é para indicar que os Leds vao ligar. add_alarm_in_ms interrupção que chama uma função e dispara em um tempo definido. sleep_ms(10) para apos 10 milisegundos voltar ao inicio do loop.
 
