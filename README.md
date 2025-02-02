@@ -60,7 +60,7 @@ Este projeto faz com que ascenda os 3 LED(vermeljo,verde e amarelo) em apenas um
     sleep_ms(10);
 
   ```
-O loop while (true) garante execução contínua. A primeira condição IF tem como objetivo fazer o debounce que faz controle de corrente ao clicar no pushbutton. A segunda condição serve para chamar as interrupções apenas qyuando clicar no pushbutton e todos os Leds estiverem desligados.led_active = true é para indicar que os Leds vao ligar. add_alarm_in_ms interrupção que chama uma função e dispara em um tempo definido. sleep_ms(10) para apos 10 milisegundos voltar ao inicio do loop.
+O loop while (true) garante execução contínua. A primeira condição IF tem como objetivo fazer o debounce que faz controle de corrente ao clicar no pushbutton. A segunda condição serve para chamar as interrupções apenas quando clicar no pushbutton e todos os Leds estiverem desligados.led_active = true é para indicar que os Leds vao ligar. add_alarm_in_ms interrupção que chama uma função e dispara em um tempo definido. sleep_ms(10) para apos 10 milisegundos voltar ao inicio do loop.
 
 ## Funcionamento da interrupção.
 ```
